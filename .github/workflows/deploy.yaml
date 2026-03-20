@@ -27,7 +27,7 @@ jobs:
             - name: Check formatting
               run: if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then echo "Code is not formatted. Run 'go fmt ./...'"; exit 1; fi
             - name: Build check
-              run: go build -v ./src/...
+              run: GOOS=linux go build -v -o build/test_firewall ./src/main.go
     build-and-push:
         name: Build and push image
         needs: check
