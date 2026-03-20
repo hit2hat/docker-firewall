@@ -1,4 +1,4 @@
-FROM golang:1.25.7-alpine3.23 AS firewall
+FROM --platform=$BUILDPLATFORM golang:1.25.7-alpine3.23 AS firewall
 
 ARG TARGETARCH
 
@@ -15,7 +15,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=${TARGETARCH} go build -trimpath -ldflags="-
 
 FROM scratch
 
-# Configure firewall
 COPY --from=firewall /app/build/firewall /firewall
 
 ENTRYPOINT ["/firewall"]
