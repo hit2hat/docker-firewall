@@ -20,10 +20,10 @@ import (
 )
 
 const (
-	syncInterval = 3 * time.Second
-	ProtoTCP byte = 6
-	ProtoUDP byte = 17
-	PortDNS  byte = 53
+	syncInterval      = 3 * time.Second
+	ProtoTCP     byte = 6
+	ProtoUDP     byte = 17
+	PortDNS      byte = 53
 )
 
 type FWConfig struct {
